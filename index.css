@@ -1,0 +1,453 @@
+/* Base styles */
+body {
+  margin: 40px auto !important;
+  max-width: 900px;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #444;
+  padding: 0 10px;
+  font-family: Palatino,"Palatino Linotype","Palatino LT STD","Book Antiqua",Cambria,Georgia,serif;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: underline;
+  color: rgb(82, 119, 221) !important;
+}
+
+a.dock {
+  text-decoration: underline;
+  color: rgb(242, 109, 15) !important;
+}
+
+hr {
+  width: 100%;
+  float: left;
+}
+
+.name {
+  color: #666;
+}
+
+.date {
+  color: #aaa;
+  font-family: Monaco,courier new,monospace;
+  font-size: 80%;
+}
+
+/* Header and image styles */
+.container img {
+  float: right;
+  max-height: 40% !important;
+  max-width: 40%;
+}
+
+/* Grid layout */
+.grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+}
+
+/* Modern Navigation Styles (CSS-only) */
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.navbar__logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar__checkbox {
+  display: none;
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.navbar__item {
+  position: relative;
+}
+
+.navbar__link {
+  color: #555;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navbar__link:hover {
+  color: #000;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: rgb(252, 185, 109);
+  transition: width 0.3s ease;
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+.navbar__separator {
+  color: #ccc;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+/* CSS-only hamburger menu icon */
+.navbar__menu-icon {
+  display: none;
+  cursor: pointer;
+  width: 30px;
+  height: 21px;
+  position: relative;
+  margin-left: auto;
+}
+
+.navbar__menu-icon span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  border-radius: 3px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.navbar__menu-icon span:nth-child(1) {
+  top: 0px;
+}
+
+.navbar__menu-icon span:nth-child(2) {
+  top: 9px;
+}
+
+.navbar__menu-icon span:nth-child(3) {
+  top: 18px;
+}
+
+/* Responsive styles with CSS-only toggle */
+@media (max-width: 768px) {
+  .navbar__menu-icon {
+    display: block;
+  }
+  
+  .navbar__links {
+    flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: max-height 0.3s ease-out;
+    margin-top: 0.5rem;
+  }
+  
+  #menu-toggle:checked ~ .navbar__links {
+    max-height: 300px;
+    padding: 1rem 0;
+  }
+  
+  .navbar__item {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .navbar__separator {
+    display: none;
+  }
+
+  /* Animate hamburger to X when menu is open */
+  #menu-toggle:checked ~ .navbar__menu-icon span:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+  }
+  
+  #menu-toggle:checked ~ .navbar__menu-icon span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+  
+  #menu-toggle:checked ~ .navbar__menu-icon span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+  }
+}
+
+/* Work timeline styles */
+.timeline {
+  position: relative;
+  max-width: 850px;
+  margin: 40px auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  width: 1px;
+  background-color: #ddd;
+  top: 0;
+  bottom: 0;
+  left: 170px;
+}
+
+.experience-card {
+  position: relative;
+  background-color: white;
+  margin-bottom: 60px;
+  padding: 0 0 0 220px;
+}
+
+.date-section {
+  position: absolute;
+  width: 150px;
+  left: 0;
+  text-align: right;
+  color: #666;
+  font-family: Monaco, courier new, monospace;
+  font-size: 16px;
+  font-weight: 600;
+  top: 5px; /* Align with company name */
+}
+
+.company {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: normal;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.role {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 12px;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.experience-card .dot {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 162px;
+  background-color: rgb(252, 185, 109);
+  border-radius: 50%;
+  z-index: 1;
+  top: 10px; /* Align with company name */
+}
+
+.company-content {
+  padding-top: 5px;
+}
+
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 30px;
+  }
+
+  .experience-card {
+    padding: 0 0 0 70px;
+  }
+
+  .date-section {
+    width: 60px;
+    left: 0;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  .experience-card .dot {
+    left: 22px;
+  }
+}
+
+/* Research page styles */
+.research-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0;
+  list-style: none;
+}
+
+.research-item {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #eee;
+}
+
+.research-item:last-child {
+  border-bottom: none;
+}
+
+.research-content {
+  width: 100%;
+}
+
+.research-title {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.research-authors {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.research-venue {
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.research-links {
+  margin-bottom: 10px;
+}
+
+.research-tldr {
+  margin-top: 15px;
+  line-height: 1.5;
+}
+
+.research-tldr-title {
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.research-open-question {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+}
+
+.research-open-question-title {
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* Projects page styles */
+.projects-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0;
+  list-style: none;
+}
+
+.project-item {
+  margin-bottom: 40px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid #eee;
+}
+
+.project-item:last-child {
+  border-bottom: none;
+}
+
+.project-title {
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #333;
+}
+
+.project-title a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.project-title a:hover {
+  color: rgb(82, 119, 221);
+}
+
+.project-description {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.project-stats {
+  margin-bottom: 15px;
+  color: #555;
+  font-style: italic;
+}
+
+.tech-stack {
+  margin-top: 15px;
+}
+
+.tech-stack-title {
+  font-weight: bold;
+  margin-right: 8px;
+  color: #555;
+}
+
+.tech-tag {
+  display: inline-block;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  padding: 3px 8px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.project-links {
+  margin-top: 12px;
+}
+
+.project-links a {
+  margin-right: 15px;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}

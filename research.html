@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Udit Verma | Research</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="index.html" class="navbar__logo">Udit Verma</a>
+      <label for="menu-toggle" class="navbar__menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <input type="checkbox" id="menu-toggle" class="navbar__checkbox">
+      <ul class="navbar__links">
+        <li class="navbar__item">
+          <a href="work.html" class="navbar__link">Work</a>
+        </li>
+        <li class="navbar__separator">/</li>
+        <li class="navbar__item">
+          <a href="projects.html" class="navbar__link">Projects</a>
+        </li>
+        <li class="navbar__separator">/</li>
+        <li class="navbar__item">
+          <a href="research.html" class="navbar__link">Research</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!--
+    <h1>Research</h1>
+
+    <ul class="research-list">
+      <li class="research-item">
+        <div class="research-content">
+          <h2 class="research-title">Value Function Based Performance Optimization of Deep Learning Workloads</h2>
+          <div class="research-authors">
+            Benoit Steiner, Chris Cummins, <b>Horace He</b>, Hugh Leather
+          </div>
+          <div class="research-venue">
+            <a href="http://mlforsystems.org/">NeurIPS Workshop on ML for Systems</a><br>
+            <a href="https://mlsys.org/">MLSys 2021</a>
+          </div>
+          <div class="research-links">
+            [<a href="https://arxiv.org/abs/2011.14486">Paper</a>]
+          </div>
+          <div class="research-tldr">
+            <span class="research-tldr-title">TL;DR:</span> For the task of automatically optimizing deep learning
+            workloads (e.g: matrix multiplies), we demonstrate that it's possible to utilize reinforcement learning to
+            generate deep learning kernels much faster than previous methods that relied upon greedy cost models and
+            autotuning. We outperform Halide/AutoTVM while generating schedules >100x faster.
+          </div>
+        </div>
+      </li>
+
+      <li class="research-item">
+        <div class="research-content">
+          <h2 class="research-title">Combining Label Propagation and Simple Models Out-performs Graph Neural Networks
+          </h2>
+          <div class="research-authors">
+            <b>Horace He*</b>, Qian Huang*, Abhay Singh*, Ser-Nam Lim, Austin Benson
+          </div>
+          <div class="research-venue">
+            ICLR 2021
+          </div>
+          <div class="research-links">
+            [<a href="https://arxiv.org/abs/2010.13993">Paper</a>]
+          </div>
+          <div class="research-tldr">
+            <span class="research-tldr-title">TL;DR:</span> We demonstrate that for many popular transductive node
+            classification tasks, state-of-the-art GNN models can be out-performed by a shallow MLP prediction followed
+            by the post-processing of two Label Propagation variants. This simple framework directly uses label
+            information and on some benchmarks, can outperform SOTA GNNs with orders of magnitude less parameters and
+            runtime. Highlight result: We outperform SOTA GNNs on ogbn-products with 137x less parameters and >100x less
+            runtime.
+          </div>
+        </div>
+      </li>
+
+      <li class="research-item">
+        <div class="research-content">
+          <h2 class="research-title">Geometry Types for Graphics Programming</h2>
+          <div class="research-authors">
+            Dietrich Geisler, Irene Yoon, Aditi Kabra, <b>Horace He</b>, Yinnon Sanders, Adrian Sampson
+          </div>
+          <div class="research-venue">
+            <a href="https://2020.splashcon.org/track/splash-2020-oopsla">OOPSLA 2020</a>
+          </div>
+          <div class="research-links">
+            [<a href="https://www.cs.cornell.edu/~asampson/media/papers/gator-oopsla2020-preprint.pdf">Paper</a>] [<a
+              href="https://twitter.com/samps/status/1315690803130519552">Twitter Thread</a>]
+          </div>
+          <div class="research-tldr">
+            <span class="research-tldr-title">TL;DR:</span> Incorrect usage of coordinate systems (such as adding a
+            vector in model space to a vector in world space) is responsible for a class of geometry bugs. Even worse,
+            these bugs tend to be extremely nasty - often, it's not obvious if you've even had a bug. Gator marks
+            geometric objects with their coordinate system and reference frame. Not only does this prevent the class of
+            bugs mentioned above, it also allows for automatic generation of transformation code from one space to
+            another.
+          </div>
+        </div>
+      </li>
+
+      <li class="research-item">
+        <div class="research-content">
+          <h2 class="research-title">Better Set Representations for Relational Reasoning</h2>
+          <div class="research-authors">
+            <b>Horace He*</b>, Qian Huang*, Abhay Singh*, Yan Zhang, Ser-Nam Lim, Austin Benson
+          </div>
+          <div class="research-venue">
+            <a href="https://nips.cc/">NeurIPS 2020</a><br>
+            <a href="https://oolworkshop.github.io/">ICML 2020: Object-Oriented Learning Workshop</a>
+          </div>
+          <div class="research-links">
+            [<a href="https://arxiv.org/abs/2003.04448">Paper</a>] [<a
+              href="https://www.youtube.com/watch?v=Yhe5mZ-i6-Y">OOL Talk</a>]
+          </div>
+          <div class="research-tldr">
+            <span class="research-tldr-title">TL;DR:</span> Most methods for relational reasoning, like graph neural
+            networks or transformers, need to operate on some kind of unordered set. However, the input(often an image)
+            is not. Existing methods ignore the set structure. We show that by generating sets "properly", we can
+            improve performance and robustness on a wide variety of tasks.
+          </div>
+        </div>
+      </li>
+
+      <li class="research-item">
+        <div class="research-content">
+          <h2 class="research-title">Enhancing Adversarial Example Transferability with an Intermediate Level Attack
+          </h2>
+          <div class="research-authors">
+            <b>Horace He*</b>, Qian Huang*, Isay Katsman*, Zeqi Gu*, Serge Belongie, Ser-Nam Lim
+          </div>
+          <div class="research-venue">
+            <a href="http://iccv2019.thecvf.com/">ICCV 2019</a>
+          </div>
+          <div class="research-links">
+            [<a href="https://arxiv.org/abs/1907.10823">Paper</a>] [<a
+              href="https://slideslive.com/38922555/contributed-talk-5-enhancing-adversarial-example-transferability-with-an-intermediate-level-attack">Talk
+              at WIML Workshop</a>] [<a href="https://twitter.com/cHHillee/status/1201705688898113536">Twitter
+              Thread</a>] [<a
+              href="https://news.cornell.edu/stories/2019/11/cs-undergrads-research-sets-sights-image-hackers">Cornell
+              Chronicle</a>]
+          </div>
+          <div class="research-tldr">
+            <span class="research-tldr-title">TL;DR:</span> By optimizing the orthogonal projection of our perturbation
+            onto an existing perturbation in the feature space, we can improve transferability significantly. Choosing
+            the layer at which we optimize the projection changes the transferability significantly. Pretty surprising
+            that this works.
+          </div>
+          <div class="research-open-question">
+            <span class="research-open-question-title">Open Question:</span> Why does this method work? We provide some
+            guesses in the paper, but optimizing for the orthogonal projection obviously isn't fundamentally the
+            <i>right</i> thing to do. After all, recursively applying our method to the perturbations doesn't generate
+            better perturbations.
+          </div>
+        </div>
+      </li>
+
+      <li class="research-item">
+        <div class="research-content">
+          <h2 class="research-title">Adversarial Example Decomposition</h2>
+          <div class="research-authors">
+            <b>Horace He</b>, Aaron Lou*, Qingxuan Jiang*, Isay Katsman*, Serge Belongie, Ser-Nam Lim
+          </div>
+          <div class="research-venue">
+            <a href="https://icml2019workshop.github.io/">ICML Workshop on Security and Privacy of Machine Learning</a>
+          </div>
+          <div class="research-links">
+            [<a href="https://arxiv.org/abs/1812.01198">Paper</a>]
+          </div>
+          <div class="research-tldr">
+            <span class="research-tldr-title">TL;DR:</span> If you take the vector projection from a transferable
+            perturbation to a regular perturbation, you get an extremely <b>non</b>-transferable perturbation.
+          </div>
+        </div>
+      </li>
+    </ul>
+  </main>
+</body>
+-->
+</html>
