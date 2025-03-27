@@ -451,3 +451,66 @@ hr {
 .no-wrap {
   white-space: nowrap;
 }
+
+.timeline-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 40px 0;
+}
+
+.experience-card-alt {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.experience-card-alt:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.experience-card-alt .date-section {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #888;
+  font-weight: normal;
+  position: static;
+  width: auto;
+  text-align: left;
+}
+
+.experience-card-alt .company {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+/* Toggle between views */
+.view-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.view-toggle button {
+  background: none;
+  border: none;
+  padding: 5px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.view-toggle button.active {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Hide by default */
+.timeline-cards {
+  display: none;
+}

@@ -6,6 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Udit Verma | Work</title>
   <link rel="stylesheet" type="text/css" href="index.css">
+  <style>
+    /* Alternative format: Cards style */
+    .timeline-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    
+    .experience-card-alt {
+      border: 1px solid #eee;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .experience-card-alt:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .experience-card-alt .date-section {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #888;
+      font-weight: normal;
+      position: static;
+      width: auto;
+      text-align: left;
+    }
+    
+    .experience-card-alt .company {
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+    
+    /* Toggle between views */
+    .view-toggle {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .view-toggle button {
+      background: none;
+      border: none;
+      padding: 5px 15px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    
+    .view-toggle button.active {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    
+    /* Hide by default */
+    .timeline-cards {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -35,24 +100,30 @@
   </nav>
 
   <main>
-    <h1>Work</h1>
+    <h1>Work Experience</h1>
+    
+    <div class="view-toggle">
+      <button id="vertical-view" class="active">Vertical</button>
+      <button id="cards-view">Cards</button>
+    </div>
 
-    <div class="timeline">
-      <div class="experience-card">
-        <div class="date-section">2025 - Present</div>
-        <div class="dot"></div>
-        <div class="company-content">
-          <div class="company">dock.</div>
-          <div class="role">Co-founder and CTO</div>
-        </div>
-      </div>
-
+    <!-- Original vertical timeline -->
+    <div class="timeline" id="vertical-timeline">
       <div class="experience-card">
         <div class="date-section">2024 - Present</div>
         <div class="dot"></div>
         <div class="company-content">
           <div class="company">EngineeRD Solutions</div>
-          <div class="role">Software Engineer, Machine Learning Initiatives</div>
+          <div class="role">Software Engineer</div>
+          <div class="project-description">
+            Developing innovative solutions for government and defense clients.
+          </div>
+          <div class="tech-stack">
+            <span class="tech-stack-title">Projects:</span>
+            <span class="tech-tag">Department of Defense</span>
+            <span class="tech-tag">Healthcare</span>
+            <span class="tech-tag">Internal</span>
+          </div>
         </div>
       </div>
 
@@ -61,7 +132,10 @@
         <div class="dot"></div>
         <div class="company-content">
           <div class="company">George Mason University</div>
-          <div class="role">Student Researcher, Cybersecurity / SWE and Artificial Intelligence (LLMs)</div>
+          <div class="role">Research Assistant</div>
+          <div class="project-description">
+            Conducted research on privacy preserving techniques within large language models.
+          </div>
         </div>
       </div>
 
@@ -69,8 +143,11 @@
         <div class="date-section">2022</div>
         <div class="dot"></div>
         <div class="company-content">
-          <div class="company">Atikin Consulting Co-op</div>
-          <div class="role">Artificial Intelligence and Machine Learning Initiatives</div>
+          <div class="company">Atikin Consulting</div>
+          <div class="role">Software Engineer</div>
+          <div class="project-description">
+            Implemented enterprise software solutions for business clients.
+          </div>
         </div>
       </div>
 
@@ -78,11 +155,125 @@
         <div class="date-section">2022</div>
         <div class="dot"></div>
         <div class="company-content">
-          <div class="company">CBIZ MHM Intern</div>
+          <div class="company">CBIZ MHM</div>
           <div class="role">IT Assurance and Compliance</div>
+          <div class="project-description">
+            Ensured IT systems met industry standards and regulatory requirements.
+          </div>
         </div>
       </div>
     </div>
+    
+    <!-- Cards view (dynamically generated) -->
+    <div class="timeline-cards" id="cards-view-timeline">
+      <!-- Content will be generated dynamically via JavaScript -->
+    </div>
+    
+    <script>
+      // Simple view toggling functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const verticalView = document.getElementById('vertical-view');
+        const cardsView = document.getElementById('cards-view');
+        
+        const verticalTimeline = document.getElementById('vertical-timeline');
+        const cardsTimeline = document.getElementById('cards-view-timeline');
+        
+        // Generate card view content from vertical timeline
+        function generateCardView() {
+          // Clear existing cards
+          cardsTimeline.innerHTML = '';
+          
+          // Get all experience cards from vertical timeline
+          const experienceCards = verticalTimeline.querySelectorAll('.experience-card');
+          
+          // Create a card for each experience
+          experienceCards.forEach(card => {
+            const dateSection = card.querySelector('.date-section').textContent;
+            const company = card.querySelector('.company').textContent;
+            const role = card.querySelector('.role').textContent;
+            const description = card.querySelector('.project-description').textContent.trim();
+            
+            // Create new card
+            const newCard = document.createElement('div');
+            newCard.className = 'experience-card-alt';
+            
+            // Create date section
+            const newDateSection = document.createElement('div');
+            newDateSection.className = 'date-section';
+            newDateSection.textContent = dateSection;
+            newCard.appendChild(newDateSection);
+            
+            // Create company
+            const newCompany = document.createElement('div');
+            newCompany.className = 'company';
+            newCompany.textContent = company;
+            newCard.appendChild(newCompany);
+            
+            // Create role
+            const newRole = document.createElement('div');
+            newRole.className = 'role';
+            newRole.textContent = role;
+            newCard.appendChild(newRole);
+            
+            // Create description
+            const newDescription = document.createElement('div');
+            newDescription.className = 'project-description';
+            newDescription.textContent = description;
+            newCard.appendChild(newDescription);
+            
+            // Check for and add tech stack if it exists
+            const techStack = card.querySelector('.tech-stack');
+            if (techStack) {
+              const newTechStack = techStack.cloneNode(true);
+              newCard.appendChild(newTechStack);
+            }
+            
+            // Check for and add research links if they exist
+            const researchLinks = card.querySelector('.research-links');
+            if (researchLinks) {
+              const newResearchLinks = researchLinks.cloneNode(true);
+              newCard.appendChild(newResearchLinks);
+            }
+            
+            // Check for and add project stats if they exist
+            const projectStats = card.querySelector('.project-stats');
+            if (projectStats) {
+              const newProjectStats = projectStats.cloneNode(true);
+              newCard.appendChild(newProjectStats);
+            }
+            
+            // Add completed card to the cards timeline
+            cardsTimeline.appendChild(newCard);
+          });
+        }
+        
+        // Generate cards initially
+        generateCardView();
+        
+        // Default view
+        verticalTimeline.style.display = 'block';
+        cardsTimeline.style.display = 'none';
+        
+        verticalView.addEventListener('click', function() {
+          verticalTimeline.style.display = 'block';
+          cardsTimeline.style.display = 'none';
+          
+          verticalView.classList.add('active');
+          cardsView.classList.remove('active');
+        });
+        
+        cardsView.addEventListener('click', function() {
+          // Regenerate cards view each time to ensure it's up-to-date
+          generateCardView();
+          
+          verticalTimeline.style.display = 'none';
+          cardsTimeline.style.display = 'grid';
+          
+          verticalView.classList.remove('active');
+          cardsView.classList.add('active');
+        });
+      });
+    </script>
   </main>
 </body>
 
